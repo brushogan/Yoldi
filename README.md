@@ -1,36 +1,17 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Задача
 
-## Getting Started
+## Ф**ронтенд для сайта «Профиль в Yoldi»**
 
-First, run the development server:
+### Исходные данные
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+[Дизайн в Figma](https://www.figma.com/file/Cws3gKEwGqPvJRhNLLY36u/%D0%A2%D0%B5%D1%81%D1%82%D0%BE%D0%B2%D0%BE%D0%B5-%D0%B7%D0%B0%D0%B4%D0%B0%D0%BD%D0%B8%D0%B5-Yoldi?node-id=0%3A1)
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+[АПИ описано в Свагере](https://frontend-test-api.yoldi.agency/api/docs)
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+### Результат
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+1. NextJS и useSWR
 
-## Learn More
+2. Ссылка на код на GitHub: https://github.com/brushogan/Yoldi
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+3. Ссылка на Vercel с проектом: https://yoldi-three.vercel.app/
