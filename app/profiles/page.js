@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import useSWR from "swr";
 import { useRouter } from "next/navigation";
 import { baseUrl, fetcher } from "../utils/apiConfig";
@@ -7,8 +7,11 @@ import Loader from "../components/UI/Loader";
 import s from "./Profiles.module.css";
 
 const ProfilesList = () => {
+  const [mySlug, setMySlug] = useState(null);
   const { push } = useRouter();
   const { data: users, isLoading } = useSWR(`${baseUrl}user`, fetcher);
+
+  useEffect(() => setMySlug(localStorage.getItem("slug")), []);
 
   if (isLoading) {
     return <Loader />;
@@ -23,13 +26,7 @@ const ProfilesList = () => {
             <div
               className={s.user}
               key={slug}
-              onClick={() =>
-                push(
-                  `/profiles/${
-                    slug === localStorage.getItem("slug") ? "me" : slug
-                  }`
-                )
-              }
+              onClick={() => push(`/profiles/${slug === mySlug ? "me" : slug}`)}
             >
               <div
                 className={s.avatar}

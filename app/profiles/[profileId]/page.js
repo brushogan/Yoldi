@@ -28,9 +28,20 @@ const Profile = ({ params }) => {
   const { setProfile } = useContext(ProfileContext);
   const { mutate } = useSWRConfig();
   const { profileId: slug } = params;
-  const myPage = slug === "me" && localStorage.getItem("token");
-  const overdue = slug === "me" && !localStorage.getItem("token");
+  const [token, setToken] = useState(null);
+  const myPage = slug === "me" && token;
+  const overdue = slug === "me" && !token;
   const { push } = useRouter();
+  const getSecureData = (url) =>
+    fetch(url, {
+      method: "GET",
+      headers: {
+        accept: "application/json",
+        "X-API-KEY": String(token),
+      },
+    }).then((res) => res.json());
+
+  useEffect(() => setToken(localStorage.getItem("token")), []);
 
   const {
     data,
@@ -58,10 +69,11 @@ const Profile = ({ params }) => {
     push("/login");
     setProfile(null);
     localStorage.removeItem("token");
+    localStorage.removeItem("slug");
   };
 
   const changeProfile = async () => {
-    await mutate(`/profile`, patchFile(user)).then(refresh);
+    await mutate(`/profile`, patchFile(user, token)).then(refresh);
     switchShowPopup();
   };
 
@@ -76,12 +88,12 @@ const Profile = ({ params }) => {
 
     const profileData = { name: data.name, slug: data.slug, [`${type}Id`]: id };
 
-    await mutate(`/profile`, patchFile(profileData)).then(refresh);
+    await mutate(`/profile`, patchFile(profileData, token)).then(refresh);
   };
 
   const removeCover = async () => {
     const profileData = { name: data.name, slug: data.slug, coverId: null };
-    await mutate(`/profile`, patchFile(profileData)).then(refresh);
+    await mutate(`/profile`, patchFile(profileData, token)).then(refresh);
   };
 
   if (overdue) {

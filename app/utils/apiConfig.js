@@ -15,21 +15,12 @@ export const authRequest = (type, { arg }) =>
     body: JSON.stringify(arg),
   }).then((res) => res.json());
 
-export const getSecureData = (url) =>
-  fetch(url, {
-    method: "GET",
-    headers: {
-      accept: "application/json",
-      "X-API-KEY": String(localStorage.getItem("token")),
-    },
-  }).then((res) => res.json());
-
-export const patchFile = (userData) =>
+export const patchFile = (userData, key) =>
   fetch(`${baseUrl}profile`, {
     method: "PATCH",
     headers: {
       accept: "application/json",
-      "X-API-KEY": String(localStorage.getItem("token")),
+      "X-API-KEY": String(key),
       "Content-Type": "application/json",
     },
     body: JSON.stringify(userData),

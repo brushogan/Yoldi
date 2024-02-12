@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useContext } from "react";
 import { ProfileContext } from "@/app/context/ProfileContext";
 import Image from "next/image";
@@ -10,10 +10,13 @@ import { Toaster } from "react-hot-toast";
 import logo from "@images/logo.svg";
 
 const Header = () => {
+  const [token, setToken] = useState(null);
   const { profile } = useContext(ProfileContext);
   const { push } = useRouter();
   const pathname = usePathname();
-  const isAuthorized = Boolean(localStorage.getItem("token"));
+  const isAuthorized = Boolean(token);
+
+  useEffect(() => setToken(localStorage.getItem("token")), []);
 
   const onLoginClick = () => {
     if (pathname !== "/login") push("/login");
