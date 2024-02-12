@@ -1,24 +1,14 @@
 "use client";
-import React, { useState, useEffect } from "react";
+import React from "react";
 import useSWR from "swr";
 import { useRouter } from "next/navigation";
-import { baseUrl } from "../utils/apiConfig";
+import { baseUrl, fetcher } from "../utils/apiConfig";
 import Loader from "../components/UI/Loader";
 import s from "./Profiles.module.css";
 
 const ProfilesList = () => {
   const { push } = useRouter();
-  const [users, setUsers] = useState([]);
-  const fetcher = (url) =>
-    fetch(url, {
-      method: "GET",
-    }).then((res) => res.json());
-
-  const { data, error, isLoading } = useSWR(`${baseUrl}user`, fetcher);
-
-  useEffect(() => {
-    if (data) setUsers(data);
-  }, [data, error]);
+  const { data: users, isLoading } = useSWR(`${baseUrl}user`, fetcher);
 
   if (isLoading) {
     return <Loader />;

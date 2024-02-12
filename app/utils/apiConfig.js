@@ -1,5 +1,20 @@
 export const baseUrl = "https://frontend-test-api.yoldi.agency/api/";
 
+export const fetcher = (url) =>
+  fetch(url, {
+    method: "GET",
+  }).then((res) => res.json());
+
+export const authRequest = (type, { arg }) =>
+  fetch(`${baseUrl}auth/${type}`, {
+    method: "POST",
+    headers: {
+      accept: "application/json",
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(arg),
+  }).then((res) => res.json());
+
 export const getSecureData = (url) =>
   fetch(url, {
     method: "GET",

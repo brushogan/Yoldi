@@ -1,15 +1,10 @@
 import React from "react";
 import s from "./Popup.module.css";
 
-const Popup = ({
-  userUpdates,
-  setUserUpdates,
-  switchShowPopup,
-  changeProfile,
-}) => {
+const Popup = ({ user, setUser, switchShowPopup, changeProfile }) => {
   const onChange = (e, type) => {
     const newValue = e.target.value.trim();
-    setUserUpdates((prev) => ({ ...prev, [type]: newValue }));
+    setUser((prev) => ({ ...prev, [type]: newValue }));
   };
 
   return (
@@ -17,7 +12,7 @@ const Popup = ({
       <div className={s.popup} onClick={(event) => event.stopPropagation()}>
         <h1>Редактировать профиль</h1>
         <div>
-          {!userUpdates.name ? (
+          {!user.name ? (
             <div className={s.labelError}>Имя не может быть пустым</div>
           ) : (
             <div className={s.label}>Имя</div>
@@ -25,10 +20,10 @@ const Popup = ({
           <input
             className={s.input}
             placeholder={"Имя"}
-            value={userUpdates.name}
+            value={user.name}
             onChange={(e) => onChange(e, "name")}
           />
-          {!userUpdates.slug ? (
+          {!user.slug ? (
             <div className={s.labelError}>
               Адрес профиля не может быть пустым
             </div>
@@ -44,7 +39,7 @@ const Popup = ({
             <input
               className={s.inputAddress}
               placeholder={"Адрес профиля"}
-              value={userUpdates.slug}
+              value={user.slug}
               onChange={(e) => onChange(e, "slug")}
             />
           </div>
@@ -52,7 +47,7 @@ const Popup = ({
           <textarea
             placeholder="Описание"
             className={s.textarea}
-            value={userUpdates.description || ""}
+            value={user.description || ""}
             onChange={(e) => onChange(e, "description")}
           />
         </div>
@@ -63,7 +58,7 @@ const Popup = ({
           <button
             onClick={changeProfile}
             className={s.saveBtn}
-            disabled={!userUpdates.name || !userUpdates.slug}
+            disabled={!user.name || !user.slug}
           >
             Сохранить
           </button>

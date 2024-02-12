@@ -20,10 +20,10 @@ import signOut from "@images/sign-out-alt-solid.svg";
 import trash from "@images/trash-solid.svg";
 import Popup from "@/app/components/UI/Popup";
 import Overdue from "@/app/components/UI/Overdue";
+import { getImageBackground } from "@/app/constants/constants";
 
 const Profile = ({ params }) => {
   const [user, setUser] = useState({});
-  const [userUpdates, setUserUpdates] = useState({});
   const [showPopup, setSHowPopup] = useState(false);
   const { setProfile } = useContext(ProfileContext);
   const { mutate } = useSWRConfig();
@@ -45,7 +45,6 @@ const Profile = ({ params }) => {
   useEffect(() => {
     if (data) {
       setUser(data);
-      setUserUpdates(data);
       if (myPage) {
         setProfile(data);
         localStorage.setItem("slug", data.slug);
@@ -62,7 +61,7 @@ const Profile = ({ params }) => {
   };
 
   const changeProfile = async () => {
-    await mutate(`/profile`, patchFile(userUpdates)).then(refresh);
+    await mutate(`/profile`, patchFile(user)).then(refresh);
     switchShowPopup();
   };
 
@@ -97,15 +96,7 @@ const Profile = ({ params }) => {
     <div className={s.profileContainer}>
       <div
         className={s.cover}
-        style={
-          user?.cover?.url
-            ? {
-                backgroundImage: `url(${user.cover.url})`,
-                backgroundSize: "cover",
-                backgroundPosition: "center",
-              }
-            : {}
-        }
+        style={user?.cover?.url ? getImageBackground(user.cover.url) : {}}
       >
         {myPage && (
           <div className={s.fileInput}>
@@ -133,15 +124,7 @@ const Profile = ({ params }) => {
       <div className={s.mainBlock}>
         <div
           className={myPage ? s.myAvatar : s.avatar}
-          style={
-            user?.image?.url
-              ? {
-                  backgroundImage: `url(${user.image.url})`,
-                  backgroundSize: "cover",
-                  backgroundPosition: "center",
-                }
-              : {}
-          }
+          style={user?.image?.url ? getImageBackground(user.image.url) : {}}
         >
           {myPage && (
             <>
@@ -177,8 +160,8 @@ const Profile = ({ params }) => {
       </div>
       {showPopup && (
         <Popup
-          userUpdates={userUpdates}
-          setUserUpdates={setUserUpdates}
+          user={user}
+          setUser={setUser}
           switchShowPopup={switchShowPopup}
           changeProfile={changeProfile}
         />
