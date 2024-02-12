@@ -1,0 +1,160 @@
+.profileContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.cover {
+  position: relative;
+  width: 100%;
+  background: #f3f3f3;
+  height: 200px;
+  border-bottom: 1px solid #e6e6e6;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.fileInput {
+  position: relative;
+  display: none;
+  background: white;
+  border-radius: 5px;
+  border: 1px solid #d4d4d4;
+  height: 40px;
+  gap: 10px;
+  padding: 0px 22px;
+  align-items: center;
+}
+.fileInput input,
+.fileInput button {
+  top: 0;
+  left: 0;
+  opacity: 0;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+}
+.cover:hover .fileInput {
+  display: flex;
+}
+.avatar,
+.myAvatar {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100px;
+  width: 100px;
+  border-radius: 100px;
+  background: #f3f3f3;
+  border: 1px solid #e6e6e6;
+  top: 230px;
+  left: 19vw;
+  font-size: 36px;
+  line-height: 140%;
+}
+.myAvatar input {
+  top: 0;
+  left: 0;
+  opacity: 0;
+  position: absolute;
+  border-radius: 100px;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+  z-index: 1;
+}
+.image {
+  top: 0;
+  left: 0;
+  position: absolute;
+  border-radius: 100px;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+}
+.myAvatar:hover {
+  background: black !important;
+}
+.avatarIcon {
+  display: none;
+}
+.myAvatar:hover .avatarIcon {
+  display: block;
+  position: absolute;
+}
+
+.mainBlock {
+  margin-top: 85px;
+  display: flex;
+  gap: 10px;
+  flex-direction: column;
+}
+.nameBlock {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.mainBlock p {
+  margin: 0;
+}
+.upperBlock {
+  display: flex;
+  width: 800px;
+  justify-content: space-between;
+}
+.upperBlock {
+  font-size: 30px;
+  line-height: 140%;
+  margin: 0;
+}
+.mainBlock button {
+  cursor: pointer;
+  max-width: min-content;
+  padding: 22px;
+  display: flex;
+  height: 40px;
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
+  background: white;
+  border: 1px solid #d4d4d4;
+  border-radius: 5px;
+  font-size: 16px;
+  line-height: 160%;
+}
+.lowerBlock {
+  padding-top: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  max-width: 600px;
+  box-sizing: content-box;
+}
+.lowerBlock p {
+  font-size: 16px;
+  line-height: 160%;
+}
+.nameBlock p:last-child {
+  font-size: 16px;
+  line-height: 160%;
+  color: #838383;
+}
+.lowerBlock button {
+  margin-top: 30px;
+}
+@media screen and (max-width: 767px) {
+  .upperBlock {
+    flex-direction: column;
+    gap: 10px;
+  }
+  .avatar,
+  .myAvatar {
+    left: 8vw;
+  }
+  .mainBlock {
+    padding: 0px 30px;
+    width: 100vw;
+  }
+}

@@ -1,0 +1,43 @@
+.infoPage {
+  display: flex;
+  justify-content: center;
+  height: fit-content;
+}
+
+.container {
+  margin-top: 30px;
+  max-width: 800px;
+  padding: 30px;
+}
+
+.container h1 {
+  font-weight: 500;
+  font-size: 30px;
+  line-height: 42px;
+  margin-bottom: 30px;
+}
+
+.container h3 {
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 26px;
+  margin-bottom: 10px;
+}
+
+.btnContainer {
+  max-width: 265px;
+}
+
+.button {
+  margin-top: 40px;
+  width: 100%;
+  height: 50px;
+  background: #ffffff;
+  border: 1px solid #838383;
+  border-radius: 5px;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 26px;
+  color: #000000;
+  cursor: pointer;
+}

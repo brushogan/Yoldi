@@ -1,0 +1,74 @@
+.background {
+  background: #f3f3f3;
+  height: calc(100vh - 160px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 30px;
+  transition: background-color 0.3s ease-in-out;
+}
+.signUpForm {
+  display: flex;
+  flex-direction: column;
+  width: 400px;
+  background: white;
+  padding: 30px;
+  transition: top 1s ease-in-out;
+}
+.formTitle {
+  margin: 0;
+}
+.inputsBlock {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin: 25px 0px;
+  align-items: center;
+}
+.inputBlock {
+  position: relative;
+}
+.input {
+  width: 330px;
+  height: 50px;
+  border-radius: 5px;
+  border: 1px solid #d4d4d4;
+  padding-left: 55px;
+  -webkit-text-security: decimal;
+}
+.input:focus {
+  border: 1px solid #838383;
+  outline: none;
+}
+.inputIcon {
+  position: absolute;
+  left: 20px;
+  top: 12.5px;
+}
+.eyeIcon {
+  position: absolute;
+  right: 20px;
+  top: 12.5px;
+  cursor: pointer;
+}
+
+.mutedBtn {
+  width: 340px;
+  height: 50px;
+  border-radius: 5px;
+  background: #d4d4d4;
+  border: none;
+  color: white;
+}
+.active {
+  background: black;
+}
+@media screen and (max-width: 767px) {
+  .background {
+    background: white;
+  }
+  .signUpForm {
+    position: absolute;
+    top: 80px;
+  }
+}

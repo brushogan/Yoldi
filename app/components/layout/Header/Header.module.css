@@ -1,0 +1,62 @@
+.header {
+  position: relative;
+  top: 0;
+  left: 0;
+  height: 80px;
+  width: 100%;
+  background: white;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 25.6px;
+  display: flex;
+  justify-content: space-between;
+  z-index: 1;
+  border-bottom: 1px solid #e6e6e6;
+  border-top: 1px solid #e6e6e6;
+}
+.logo {
+  height: auto;
+  width: 120px;
+  padding: 0px 20px;
+  cursor: pointer;
+}
+.logoBlock {
+  display: flex;
+  align-items: center;
+  padding: 15px 0px;
+  display: flex;
+}
+.logoBlock p {
+  transition: opacity 0.3s ease-in-out;
+}
+.button {
+  margin: 20px 29.5px;
+  background: white;
+  min-width: 114px;
+  height: 40px;
+  border-radius: 5px;
+  border: 1px solid #d4d4d4;
+  cursor: pointer;
+}
+.headerProfile {
+  display: flex;
+  align-items: center;
+  margin: 15px 29.5px;
+  gap: 20px;
+}
+.avatar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f3f3f3;
+  border: 1px solid #e6e6e6;
+  width: 50px;
+  height: 50px;
+  border-radius: 50px;
+  cursor: pointer;
+}
+@media screen and (max-width: 767px) {
+  .logoBlock p {
+    opacity: 0;
+  }
+}
